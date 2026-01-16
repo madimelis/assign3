@@ -12,4 +12,19 @@ public class Hospital {
         ps.setString(2, spec);
         ps.executeUpdate();
     }
+
+    public List<Doctor> getDoctors() throws Exception {
+        Connection c = DB.connect();
+        ResultSet rs = c.createStatement().executeQuery("SELECT * FROM doctor");
+
+        List<Doctor> list = new ArrayList<>();
+        while (rs.next()) {
+            list.add(new Doctor(
+                    rs.getInt("id"),
+                    rs.getString("name"),
+                    rs.getString("specialization")
+            ));
+        }
+        return list;
+    }
 }
