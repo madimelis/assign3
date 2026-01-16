@@ -38,4 +38,20 @@ public class Hospital {
         ps.setInt(3, doctorId);
         ps.executeUpdate();
     }
+
+    public List<Patient> getPatients() throws Exception {
+        Connection c = DB.connect();
+        ResultSet rs = c.createStatement().executeQuery("SELECT * FROM patient");
+
+        List<Patient> list = new ArrayList<>();
+        while (rs.next()) {
+            list.add(new Patient(
+                    rs.getInt("id"),
+                    rs.getString("name"),
+                    rs.getInt("age"),
+                    rs.getInt("doctor_id")
+            ));
+        }
+        return list;
+    }
 }
