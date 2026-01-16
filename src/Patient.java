@@ -15,6 +15,10 @@ public class Patient {
         return age;
     }
 
+    public int getDoctorId() {
+        return doctorId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -30,6 +34,6 @@ public class Patient {
 
     @Override
     public String toString() {
-        return name + " (" + age + ")";
+        return id + " | " +  name + " (" + age + ") | doctorId: " + doctorId ;
     }
 }

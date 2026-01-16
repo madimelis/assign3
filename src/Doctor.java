@@ -8,4 +8,13 @@ public class Doctor {
         this.name = name;
         this.specialization = specialization;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return id + " |  " + name + " | " + specialization;
+    }
 }
