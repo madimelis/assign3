@@ -27,4 +27,15 @@ public class Hospital {
         }
         return list;
     }
+
+    public void addPatient(String name, int age, int doctorId) throws Exception {
+        Connection c = DB.connect();
+        PreparedStatement ps = c.prepareStatement(
+                "INSERT INTO patient(name, age, doctor_id) VALUES (?, ?, ?)"
+        );
+        ps.setString(1, name);
+        ps.setInt(2, age);
+        ps.setInt(3, doctorId);
+        ps.executeUpdate();
+    }
 }
