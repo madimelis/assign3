@@ -23,4 +23,13 @@ public class Patient {
         return id == p.id;
     }
 
+    @Override
+    public int hashCode() {
+        return id;
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + age + ")";
+    }
 }
