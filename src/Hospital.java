@@ -54,4 +54,13 @@ public class Hospital {
         }
         return list;
     }
+
+    public void deletePatient(int id) throws Exception {
+        Connection c = DB.connect();
+        PreparedStatement ps = c.prepareStatement(
+                "DELETE FROM patient WHERE id=?"
+        );
+        ps.setInt(1, id);
+        ps.executeUpdate();
+    }
 }
