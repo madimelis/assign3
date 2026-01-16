@@ -10,4 +10,17 @@ public class Patient {
         this.age = age;
         this.doctorId = doctorId;
     }
+
+    public int getAge() {
+        return age;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Patient)) return false;
+        Patient p = (Patient) o;
+        return id == p.id;
+    }
+
 }
