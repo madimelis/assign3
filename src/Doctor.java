@@ -1,20 +1,25 @@
-public class Doctor {
-    private int id;
-    private String name;
+public class Doctor extends Person {
     private String specialization;
 
-    public Doctor(int id, String name, String specialization) {
-        this.id = id;
-        this.name = name;
+    public Doctor(int id, String name, String surname, String specialization) {
+        super(id, name, surname);
         this.specialization = specialization;
     }
 
-    public int getId() {
-        return id;
+    @Override
+    public String getRole() {return "Doctor";}
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Doctor)) return false;
+        Doctor d = (Doctor) o;
+        return id == d.id;
     }
 
     @Override
-    public String toString() {
-        return id + " |  " + name + " | " + specialization;
-    }
+    public int hashCode() {return id;}
+
+    @Override
+    public String toString() {return basicInfo() + " | " + specialization;}
 }

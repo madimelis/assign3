@@ -1,23 +1,19 @@
-public class Patient {
-    private int id;
-    private String name;
+public class Patient extends Person{
     private int age;
     private int doctorId;
 
-    public Patient(int id, String name, int age, int doctorId) {
-        this.id = id;
-        this.name = name;
+    public Patient(int id, String name, String surname, int age, int doctorId) {
+        super(id, name, surname);
         this.age = age;
         this.doctorId = doctorId;
     }
 
-    public int getAge() {
-        return age;
-    }
+    public int getAge() {return age;}
 
-    public int getDoctorId() {
-        return doctorId;
-    }
+    public int getDoctorId() {return doctorId;}
+
+    @Override
+    public String getRole() {return "Patient";}
 
     @Override
     public boolean equals(Object o) {
@@ -28,12 +24,8 @@ public class Patient {
     }
 
     @Override
-    public int hashCode() {
-        return id;
-    }
+    public int hashCode() {return id;}
 
     @Override
-    public String toString() {
-        return id + " | " +  name + " (" + age + ") | doctorId: " + doctorId ;
-    }
+    public String toString() {return basicInfo() + " (" + age + ") | doctorId: " + doctorId ;}
 }
